@@ -1,5 +1,5 @@
 {
-    "name": "mishanikodev/asseter",
+    "name": "mishanikodev/assetter",
     "type": "library",
     "description": "Assets manager for PHP. Allow manage CSS and JS files in website and its dependencies. It also updates the browser cache by calculating the MD5 hash of the file.",
     "keywords": ["asset","assets","files manager","manager","md5","md5 file"],
@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "mishanikodev\\asseter\\": "src"
+            "mishanikodev\\assetter\\": "src"
         }
     }
 }
