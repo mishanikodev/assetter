@@ -7,7 +7,7 @@
  * @copyright Copyright (c) 2016 - 2017, Adam Banaszkiewicz
  * @link      https://github.com/requtize/assetter
  */
-namespace mishanikodev/assetter;
+namespace Mishanikodev/Assetter;
 
 /**
  * Asseter class. Manage assets (CSS and JS) for website, and it's
