@@ -4,7 +4,7 @@
     "description": "Assets manager for PHP. Allow manage CSS and JS files in website and its dependencies. It also updates the browser cache by calculating the MD5 hash of the file.",
     "keywords": ["asset","assets","files manager","manager","md5","md5 file"],
     "homepage": "https://github.com/mishanikodev/assetter",
-    "license": "GNU GPL",
+    "license": "GPL-3.0",
     "version": "1.0.0",
     "authors": [
         {
