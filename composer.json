@@ -2,7 +2,7 @@
     "name": "mishanikodev/assetter",
     "type": "library",
     "description": "Assets manager for PHP. Allow manage CSS and JS files in website and its dependencies. It also updates the browser cache by calculating the MD5 hash of the file.",
-    "keywords": ["asset","assets","files manager","manager", "md5", "md5 file"],
+    "keywords": ["asset","assets","files manager","manager","md5","md5 file"],
     "homepage": "https://github.com/mishanikodev/assetter",
     "license": "GNU",
     "version": "1.0.0",
@@ -11,7 +11,7 @@
             "name": "Adam Banaszkiewicz",
             "homepage": "http://adambanaszkiewicz.pl",
             "role": "Developer"
-        }
+        },
         {
             "name": "Misha Nikolaev",
             "role": "Developer"
@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "mishanikodev\\assetter\\": "src/"
+            "mishanikodev\\assetter\\": "src"
         }
     }
 }
