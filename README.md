@@ -8,14 +8,14 @@ Assets manager for PHP. Allow manage CSS and JS files in website and its depende
 ```json
 {
     "require": {
-        "mishanikodev/assetter": "^1.0.0"
+        "mishanikodev/assetter"
     }
 }
 ```
 ### Via Composer CLI
 
 ```cli
-composer require mishanikodev/assetter:^1.0.0
+composer require mishanikodev/assetter
 ```
 ## Table of contents
 * [Basics](#basics)
