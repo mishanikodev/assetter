@@ -24,13 +24,7 @@ class Assetter
      * @var array
      */
     protected $collection = [];
-    /**
-     * Stores global revision for all files.
-     * Revision number is added automatically to all files as GET aparameter.
-     * Allows refresh files from cache in browsers.
-     * @var integer
-     */
-    protected $revision = 0;
+	
     /**
      * Stores name of default group for library.
      * @var string
@@ -75,9 +69,8 @@ class Assetter
      *                              In example: ?rev=2
      * @param string  $default      Group name of default group of assets.
      */
-    public function __construct(array $collection = [], $revision = 0, $defaultGroup = 'def')
+    public function __construct(array $collection = [], $defaultGroup = 'def')
     {
-        $this->setRevision($revision);
         $this->setDefaultGroup($defaultGroup);
         $this->setCollection($collection);
     }
@@ -108,7 +101,7 @@ class Assetter
     public function registerNamespace($ns, $def, $path = '')
     {
         $this->namespaces[$ns] = $def;
-		if($path) $this->routes[$ns] = $path;
+	if($path) $this->routes[$ns] = $path;
         return $this;
     }
 
@@ -245,7 +238,7 @@ class Assetter
             'revision' => isset($data['revision']) ? $data['revision'] : $this->revision,
             'name'     => isset($data['name']) ? $data['name'] : uniqid(),
             'files'    => isset($data['files']) ? $data['files'] : [],
-			'files_path'    => isset($data['files']) ? $data['files'] : [],
+	    'files_path'    => isset($data['files']) ? $data['files'] : [],
             'group'    => isset($data['group']) ? $data['group'] : $this->defaultGroup,
             'require'  => isset($data['require']) ? $data['require'] : []
         ];
@@ -253,9 +246,10 @@ class Assetter
         if(isset($item['files']['js']) && is_array($item['files']['js'])){
             $item['files']['js'] = array('file' => $this->applyNamespaces($item['files']['js']), 'path' => $this->applyRoutes($item['files']['js']));
         }
-		if(isset($item['files']['css']) && is_array($item['files']['css'])){
+	    
+	if(isset($item['files']['css']) && is_array($item['files']['css'])){
             $item['files']['css'] = array('file' => $this->applyNamespaces($item['files']['css']), 'path' => $this->applyRoutes($item['files']['css']));
-		}
+	}
 
         $this->loaded[] = $item;
 
@@ -382,20 +376,16 @@ class Assetter
             if(isset($item['files']['css']) && is_array($item['files']['css']))
             {
 				
-				foreach($item['files']['css']['file'] as $key => $value){
-					
-					$md5file_css = (stristr($item['files']['css']['file'][$key], 'https://') ? 1 : md5_file(ROOT_DIR.$item['files']['css']['path'][$key]));
-					
-					$result[] = '<link rel="stylesheet" type="text/css" href="'.$item['files']['css']['file'][$key].'?'.$md5file_css.'" />';
-					$result_json[] = array('data' => $item['files']['css']['file'][$key], 'v' => $md5file_css);
-
-				}
-            }
-			
-        }
+	       foreach($item['files']['css']['file'] as $key => $value)
+	       {
+		  $md5file_css = (stristr($item['files']['css']['file'][$key], 'https://') ? 1 : md5_file(ROOT_DIR.$item['files']['css']['path'][$key]));
+	          $result[] = '<link rel="stylesheet" type="text/css" href="'.$item['files']['css']['file'][$key].'?'.$md5file_css.'" />';
+		  $result_json[] = array('data' => $item['files']['css']['file'][$key], 'v' => $md5file_css);
+               }
+             } 	
+           }
 		
-		$data = array('result_html' => $result, 'result_json' => $result_json);
-		
+	$data = array('result_html' => $result, 'result_json' => $result_json);
 
         return $data;
     }
@@ -416,21 +406,18 @@ class Assetter
                 }
             }
 			
-			if(isset($item['files']['js']) && is_array($item['files']['js']))
-            {
-				
-				foreach($item['files']['js']['file'] as $key => $value){
-					
-					$md5file_js = (stristr($item['files']['js']['file'][$key], 'https://') ? 1 : md5_file(ROOT_DIR.$item['files']['js']['path'][$key]));
-					
-					$result[] = '<script src="'.$item['files']['js']['file'][$key].'?'.$md5file_js.'"></script>';
-					$result_json[] = array('data' => $item['files']['js']['file'][$key], 'v' => $md5file_js);
-
-				}
+	    if(isset($item['files']['js']) && is_array($item['files']['js']))
+            {	
+	      foreach($item['files']['js']['file'] as $key => $value)
+	      {
+		$md5file_js = (stristr($item['files']['js']['file'][$key], 'https://') ? 1 : md5_file(ROOT_DIR.$item['files']['js']['path'][$key]));
+		$result[] = '<script src="'.$item['files']['js']['file'][$key].'?'.$md5file_js.'"></script>';
+		$result_json[] = array('data' => $item['files']['js']['file'][$key], 'v' => $md5file_js);
+               }
             }
         }
 		
-		$data = array('result_html' => $result, 'result_json' => $result_json);
+	$data = array('result_html' => $result, 'result_json' => $result_json);
 
         return $data;
     }
