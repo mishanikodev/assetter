@@ -15,7 +15,7 @@ Assets manager for PHP. Allow manage CSS and JS files in website and its depende
 ### Via Composer CLI
 
 ```cli
-composer require mishanikodev/assetter:dev-master
+Updating mishanikodev/assetter dev-master 
 ```
 ## Table of contents
 * [Basics](#basics)
