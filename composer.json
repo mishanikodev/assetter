@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "mishanikodev\\assetter\\": "src"
+            "Mishanikodev\\Assetter\\": "src"
         }
     }
 }
