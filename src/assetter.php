@@ -1,7 +1,7 @@
 <?php
 /**
  * Copyright (c) 2016 - 2017 by Adam Banaszkiewicz
- * Supplemented Misha Nikolaev
+ * Supplemented Misha Nikolaev 2018
  *
  * @license   MIT License
  * @copyright Copyright (c) 2016 - 2017, Adam Banaszkiewicz
